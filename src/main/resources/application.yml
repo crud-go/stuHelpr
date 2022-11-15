@@ -8,7 +8,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://121.4.57.111:3306/campusGang?autoReconnect=true
     username: root
-    password: Mysql@123
+    password: 
 
   mvc:
     view:
