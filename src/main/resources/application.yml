@@ -1,0 +1,31 @@
+spring:
+  servlet:
+    multipart:
+      enabled: true #是否启用http上传处理
+      max-request-size: 20MB #最大请求文件的大小
+      max-file-size: 20MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://121.4.57.111:3306/campusGang?autoReconnect=true
+    username: root
+    password: Mysql@123
+
+  mvc:
+    view:
+      suffix: .html
+      prefix: /
+    static-path-pattern: /static/**  #改变url
+  web:
+    resources:
+      static-locations: classpath:/static/,file:${file.location} #改变静态文件的文件架
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mappers/*.xml
+server:
+  port: 8086
+
+file:
+  location: /home/static/
+
+

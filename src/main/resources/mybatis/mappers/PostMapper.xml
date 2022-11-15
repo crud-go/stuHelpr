@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ujs.stupool.mapper.PostsMapper">
+
+
+    <resultMap id="postDetail" type="com.ujs.stupool.model.response.PostDetail">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="date" property="date"/>
+        <result column="view" property="view"/>
+        <result column="like" property="like"/>
+        <result column="comment_num" property="comment_num"/>
+        <result column="username" property="username"/>
+        <result column="avatar" property="avatar"/>
+        <result column="subarea" property="subarea"/>
+        <collection property="pictures" column="{post_id=id}"
+                    select="com.ujs.stupool.mapper.PostsMapper.getPostPics"/>
+    </resultMap>
+
+
+    <resultMap id="PostCom" type="com.ujs.stupool.model.PostCommentStruct">
+        <id column="id" property="id"/>
+        <result column="content" property="content"/>
+        <result column="post_id" property="post_id"/>
+        <result column="username" property="username"/>
+        <result column="parent" property="parent"/>
+        <result column="date" property="date"/>
+        <result column="avatar" property="avatar"/>
+        <result column="replyto" property="replyto"/>
+
+        <collection property="children" column="{parent=id}"
+                    select="com.ujs.stupool.mapper.PostsMapper.getPostComChildByParent"/>
+
+
+
+    </resultMap>
+    <insert id="insertComment" parameterType="com.ujs.stupool.model.PostComment">
+     insert into post_comments(username,content,post_id,`date`,parent,replyto) values (#{username},#{content},#{post_id},#{date},#{parent},#{replyto})
+
+    </insert>
+
+  <insert id="insertPost"  parameterType="com.ujs.stupool.model.Post" useGeneratedKeys="true" keyProperty="id">
+      insert into posts(username,
+                        subarea,
+                        title,
+                        content,
+                        date,
+                        `view`,
+                        `like`,
+                        comment_num,Cover,mini_content) values(#{username},#{subarea},#{title},#{content},#{date},#{view},#{like},#{comment_num},#{Cover},#{mini_content})
+
+  </insert>
+    <select id="getHotPost" resultType="com.ujs.stupool.model.response.PostBasicInfo">
+        select posts.id, title, subarea,mini_content, Cover, `view`, `like`, comment_num, posts.username, person.avatar,`date`
+        from posts, person
+        where posts.username = person.username
+        limit 20;
+
+    </select>
+<select id="getAllMyPosts" resultType="com.ujs.stupool.model.response.PostBasicInfo">
+    select posts.id, title, subarea,mini_content, Cover, `view`, `like`, comment_num, posts.username, person.avatar,`date`
+    from posts, person
+    where posts.username = person.username and person.id=#{userid}
+    limit #{currentPage},#{pageSize}
+
+</select>
+
+
+    <select id="getPostDetailById" resultMap="postDetail">
+        select posts.*, person.avatar
+        from posts, person
+        where posts.username = person.username and posts.id=#{id}
+    </select>
+
+    <select id="getPostComByPostId" resultMap="PostCom">
+        select post_comments.*,avatar from post_comments left join person on post_comments.username=person.username where post_id=#{id} and parent =0
+    </select>
+
+    <select id="getPostComChildByParent" resultType="com.ujs.stupool.model.ChildrenComment">
+        select post_comments.*,avatar from post_comments left join person on post_comments.username=person.username where parent=#{parent}
+    </select>
+
+
+    <select id="getPostBySubarea" resultType="com.ujs.stupool.model.response.PostBasicInfo">
+     select posts.id, title, subarea,mini_content, Cover, `view`, `like`, comment_num, posts.username, person.avatar,`date`
+     from posts, person
+     where posts.username = person.username and subarea=#{subarea}
+     limit #{currentPage},#{PageSize};
+    </select>
+
+    <insert id="addPostPictures" >
+    insert  into postpictures(post_id,picurl)
+    values
+    <foreach collection="urls" item="url" separator="," >
+     (#{postId},#{url})
+    </foreach>
+
+    </insert>
+
+    <select id="getPostPics" resultType="string" >
+        select picurl from postpictures where post_id=#{post_id}
+    </select>
+
+
+
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ujs.stupool.mapper.UserMapper">
+
+    <select id="getUserByName" resultType="com.ujs.stupool.model.User">
+        select * from person where username=#{name}
+
+    </select>
+    <select id="getUserById" resultType="com.ujs.stupool.model.User">
+        select * from person where id=#{id}
+
+    </select>
+
+
+    <insert id="insertUser" >
+     insert into person(username,password) values (#{username},#{password})
+
+    </insert>
+    <update id="UpdateUserInfo" parameterType="com.ujs.stupool.model.User">
+
+     update person set avatar=#{avatar},introduction=#{introduction},sex=#{sex},age=#{age}
+     where id=#{id}
+
+    </update>
+    <update id="ChangeUsername">
+
+     update person set username=#{username} where  id=#{id}
+    </update>
+    <update id="ChangePassword">
+        update person set `password`=#{password} where id=#{id}
+    </update>
+
+
+</mapper>

@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+<button  style="font-size: 20px; " onclick="hide()">隐藏返回值</button>
+<table border="1" cellspacing="0">
+    <tr>
+        <th>功能</th>
+        <td colspan="2">用户登录</td>
+
+    </tr>
+    <tr>
+        <th>url</th>
+        <td colspan="2">/login</td>
+
+    </tr>
+
+    <tr>
+        <th colspan="2">method</th>
+        <td>post</td>
+
+    </tr>
+    <tr>
+        <th colspan="3">params</th>
+    </tr>
+    <tr>
+        <td>username</td>
+        <td colspan="2"></td>
+
+    </tr>
+    <tr>
+        <td>password</td>
+        <td colspan="2"></td>
+    </tr>
+    <tr>
+        <th colspan="3">return</th>
+
+    </tr>
+    <tr>
+        <td colspan="3">
+                <textarea name="return"  cols="30" rows="10">
+                    {
+                        "code": 1,
+                        "data": {
+                            "username":
+                            "avatar":
+                        },
+                        "message":
+                    }
+
+             </textarea>
+
+
+        </td>
+    </tr>
+
+</table>
+<br />
+<table border="1" cellspacing="0">
+    <tr>
+        <th>功能</th>
+        <td colspan="2">用户注册</td>
+
+    </tr>
+    <tr>
+        <th>url</th>
+        <td colspan="2">/register</td>
+
+    </tr>
+
+    <tr>
+        <th colspan="2">method</th>
+        <td>post</td>
+
+    </tr>
+    <tr>
+        <th colspan="3">params</th>
+    </tr>
+    <tr>
+        <td>username</td>
+        <td colspan="2"></td>
+
+    </tr>
+    <tr>
+        <td>password</td>
+        <td colspan="2"></td>
+    </tr>
+    <tr>
+        <th colspan="3">return</th>
+
+    </tr>
+    <tr>
+        <td colspan="3">
+                <textarea name="return" cols="30" rows="10" >
+                {
+
+                 "code": 1
+                 "message":"success"
+
+                }
+
+
+             </textarea>
+
+
+        </td>
+    </tr>
+
+</table>
+<br/>
+<table border="1" cellspacing="0">
+    <tr>
+        <th>功能</th>
+        <td colspan="2">返回热门帖子</td>
+
+    </tr>
+    <tr>
+        <th>url</th>
+        <td colspan="2">/hot</td>
+
+    </tr>
+
+    <tr>
+        <th colspan="2">method</th>
+        <td>get</td>
+
+    </tr>
+    <tr>
+        <th colspan="3">params</th>
+    </tr>
+
+    <tr>
+        <th colspan="3">return</th>
+
+    </tr>
+    <tr>
+        <td colspan="3">
+                <textarea name="return" cols="30" rows="10" >
+                    {
+                        "code":1,
+                        "data":[
+                        {
+                            "id": ,
+                            "subarea":,
+                            "title": ,
+                            "mini_content": ,
+                            "date": ,
+                            "view": ,
+                            "like": ,
+                            "comment_num": ,
+                            "avatar": ,
+                            "author":,
+                            "cover"
+                        },
+                         ...
+                        ]
+                    }
+
+             </textarea>
+
+
+        </td>
+    </tr>
+
+
+</table>
+<br/>
+<table border="1" cellspacing="0">
+    <tr>
+        <th>功能</th>
+        <td colspan="2">返回帖子评论</td>
+
+    </tr>
+    <tr>
+        <th>url</th>
+        <td colspan="2">/fetchcomment/{id}</td>
+
+    </tr>
+
+    <tr>
+        <th colspan="2">method</th>
+        <td>get</td>
+
+    </tr>
+    <tr>
+        <th colspan="3">params</th>
+    </tr>
+    <tr>
+        <th colspan="3">备注</th>
+    </tr>
+    <tr>
+        <th colspan="3">帖子id直接写在url最后，目前只有id为52的帖子有评论</th>
+    </tr>
+
+
+    <tr>
+        <th colspan="3">return</th>
+
+    </tr>
+    <tr>
+        <td colspan="3">
+                <textarea name="return" cols="30" rows="10" >
+             {
+              "code": 1,
+              "data": [
+               {
+               "id": 1,
+                "content": ""
+                "username": "Philv",
+                "post_id": 52,
+                "parent": 0,
+                "date": 1667390662102,
+                "avatar": null,
+                "children": []
+                     },
+                     ...
+                       ]
+                    "message": "评论获取成功"
+                    }
+
+             </textarea>
+
+
+        </td>
+    </tr>
+
+
+</table>
+<br/>
+<table border="1" cellspacing="0">
+    <tr>
+        <th>功能</th>
+        <td colspan="2">返回帖子全部内容</td>
+
+    </tr>
+    <tr>
+        <th>url</th>
+        <td colspan="2">/postdetail/{id}</td>
+
+    </tr>
+
+    <tr>
+        <th colspan="2">method</th>
+        <td>get</td>
+
+    </tr>
+    <tr>
+        <th colspan="3">params</th>
+    </tr>
+    <tr>
+        <th colspan="3">备注</th>
+    </tr>
+    <tr>
+        <th colspan="3">帖子id直接写在url最后</th>
+    </tr>
+
+
+    <tr>
+        <th colspan="3">return</th>
+
+    </tr>
+    <tr>
+        <td colspan="3">
+                <textarea name="return"  cols="30" rows="10" >
+                    {
+                        "code": 1,
+                        "data": {
+                            "id": 52,
+                            "subarea":
+                            "title":
+                            "content":
+                            "date": 20221102,
+                            "view": 3,
+                            "like": 0,
+                            "comment_num": 0,
+                            "avatar": null,
+                            "author": "Philv",
+                            "pictures":[]
+                        },
+                        "message": "帖子获取成功"
+                    }
+
+             </textarea>
+
+
+        </td>
+    </tr>
+
+
+</table>
+<br/>
+
+<table border="1" cellspacing="0">
+    <tr>
+        <th>功能</th>
+        <td colspan="2">保存帖子</td>
+
+    </tr>
+    <tr>
+        <th>url</th>
+        <td colspan="2">/savepost</td>
+
+    </tr>
+
+    <tr>
+        <th colspan="2">method</th>
+        <td>post</td>
+
+    </tr>
+    <tr>
+        <th colspan="3">params</th>
+
+    </tr>
+    <tr>
+        <th>username</th>
+
+        <th colspan="2">作者的名字</th>
+
+    </tr>
+    <tr>
+        <th>title</th>
+
+        <th colspan="2">标题</th>
+
+    </tr>
+    <tr>
+        <th>mini_content</th>
+
+        <th colspan="2">简介</th>
+
+    </tr>
+    <tr>
+        <th>subarea</th>
+
+        <th colspan="2">分区</th>
+
+    </tr>
+    <tr>
+        <th>content</th>
+
+        <th colspan="2">内容</th>
+
+    </tr>
+    <tr>
+        <th>cover</th>
+
+        <th colspan="2">帖子封面</th>
+
+    </tr>
+    <tr>
+        <th>pictures</th>
+
+        <th colspan="2">用列表存放所有链接</th>
+
+    </tr>
+
+    <tr>
+        <th colspan="3">备注</th>
+    </tr>
+    <tr>
+        <th colspan="3">需要token</th>
+    </tr>
+
+
+
+
+    <tr>
+        <th colspan="3">return</th>
+
+    </tr>
+    <tr>
+        <td colspan="3">
+                <textarea name="return"  cols="30" rows="10" >
+                    {
+                        "code": 1,
+                        "message": "success"
+                    }
+
+
+             </textarea>
+
+
+        </td>
+    </tr>
+
+
+</table>
+<br/>
+
+
+<table border="1" cellspacing="0">
+    <tr>
+        <th>功能</th>
+        <td colspan="2">保存评论</td>
+
+    </tr>
+    <tr>
+        <th>url</th>
+        <td colspan="2">/savecomment</td>
+
+    </tr>
+
+    <tr>
+        <th colspan="2">method</th>
+        <td>post</td>
+
+    </tr>
+    <tr>
+        <th colspan="3">params</th>
+
+    </tr>
+    <tr>
+        <th>username</th>
+
+        <th colspan="2">评论者的名字</th>
+
+    </tr>
+    <tr>
+        <th>content</th>
+
+        <th colspan="2">内容</th>
+
+    </tr>
+    <tr>
+        <th>post_id</th>
+
+        <th colspan="2">帖子id</th>
+
+    </tr>
+    <tr>
+        <th>parent</th>
+
+        <th colspan="2">父评论的id,没有就是0</th>
+
+    </tr>
+    <tr>
+        <th>replyto</th>
+
+        <th colspan="2">被回复人的名字</th>
+
+    </tr>
+    <tr>
+        <th colspan="3">备注</th>
+    </tr>
+    <tr>
+        <th colspan="3">需要token</th>
+    </tr>
+
+
+
+
+    <tr>
+        <th colspan="3">return</th>
+
+    </tr>
+    <tr>
+        <td colspan="3">
+                <textarea name="return"  cols="30" rows="10" >
+                    {
+                        "code": 1,
+                        "message": "success"
+                    }
+
+
+             </textarea>
+
+
+        </td>
+    </tr>
+
+
+</table>
+<br/>
+<table border="1" cellspacing="0">
+    <tr>
+        <th>功能</th>
+        <td colspan="2">修改密码</td>
+
+    </tr>
+    <tr>
+        <th>url</th>
+        <td colspan="2">/password</td>
+
+    </tr>
+
+    <tr>
+        <th colspan="2">method</th>
+        <td>put</td>
+
+    </tr>
+    <tr>
+        <th colspan="3">params</th>
+    </tr>
+    <tr>
+        <td>newPassword</td>
+        <td colspan="2"></td>
+    </tr>
+    <tr>
+        <th colspan="3">备注</th>
+    </tr>
+    <tr>
+
+        <td colspan="3">需要Token才能使用此接口</td>
+    </tr>
+
+    <tr>
+        <th colspan="3">return</th>
+
+    </tr>
+    <tr>
+        <td colspan="3">
+                <textarea name="return"  cols="30" rows="10" >
+                    {
+                        "code": 1,
+                        "message": "修改密码成功"
+                    }
+
+             </textarea>
+
+
+        </td>
+    </tr>
+
+</table>
+<br/>
+<table border="1" cellspacing="0">
+    <tr>
+        <th>功能</th>
+        <td colspan="2">图片上传</td>
+
+    </tr>
+    <tr>
+        <th>url</th>
+        <td colspan="2">/upload</td>
+
+    </tr>
+
+    <tr>
+        <th colspan="2">method</th>
+        <td>post</td>
+
+    </tr>
+    <tr>
+        <th colspan="3">params</th>
+    </tr>
+    <tr>
+        <td>file</td>
+        <td colspan="2">formdata</td>
+
+    </tr>
+    <tr>
+        <th colspan="3">备注</th>
+    </tr>
+    <tr>
+
+        <td colspan="3">需要Token才能使用此接口</td>
+    </tr>
+    <tr>
+        <th colspan="3">return</th>
+
+    </tr>
+    <tr>
+        <td colspan="3">
+                <textarea name="return" cols="30" rows="10" >
+                    {
+                        "code": 1,
+                        "message": "http://localhost:8086/files/1667623597850.jpg"
+                    }
+             </textarea>
+
+
+        </td>
+    </tr>
+
+</table>
+
+<br/>
+<table border="1" cellspacing="0">
+    <tr>
+        <th>功能</th>
+        <td colspan="2">更新用户名</td>
+
+    </tr>
+    <tr>
+        <th>url</th>
+        <td colspan="2">/updatename</td>
+
+    </tr>
+
+    <tr>
+        <th colspan="2">method</th>
+        <td>put</td>
+
+    </tr>
+    <tr>
+        <th colspan="3">params</th>
+    </tr>
+    <tr>
+        <td>newName</td>
+        <td colspan="2"></td>
+    </tr>
+    <tr>
+        <th colspan="3">备注</th>
+    </tr>
+    <tr>
+
+        <td colspan="3">需要Token才能使用此接口</td>
+    </tr>
+
+    <tr>
+        <th colspan="3">return</th>
+
+    </tr>
+    <tr>
+        <td colspan="3">
+                <textarea name="return" cols="30" rows="10" >
+                    {
+                        "code": 1,
+                        "message": "修改名字成功"
+                    }
+
+             </textarea>
+
+
+        </td>
+    </tr>
+
+</table>
+<br/>
+<table border="1" cellspacing="0">
+    <tr>
+        <th>功能</th>
+        <td colspan="2">更新用户信息</td>
+
+    </tr>
+    <tr>
+        <th>url</th>
+        <td colspan="2">/changeinfo</td>
+
+    </tr>
+
+    <tr>
+        <th colspan="2">method</th>
+        <td>put</td>
+
+    </tr>
+    <tr>
+        <th colspan="3">params</th>
+    </tr>
+    <tr>
+        <td>introduction</td>
+        <td colspan="2"></td>
+    </tr>
+    <tr>
+        <td>avatar</td>
+        <td colspan="2">头像</td>
+    </tr>
+    <tr>
+        <td>sex</td>
+        <td colspan="2"></td>
+    </tr>
+    <tr>
+        <td>age</td>
+        <td colspan="2"></td>
+    </tr>
+    <tr>
+        <th colspan="3">备注</th>
+    </tr>
+    <tr>
+
+        <td colspan="3">需要Token才能使用此接口</td>
+    </tr>
+
+    <tr>
+        <th colspan="3">return</th>
+
+    </tr>
+    <tr>
+        <td colspan="3">
+                <textarea name="return" cols="30" rows="10" >
+                    {
+                        "code": 1,
+                        "message": "success"
+                    }
+
+             </textarea>
+
+
+        </td>
+    </tr>
+
+</table>
+<br/>
+<table border="1" cellspacing="0">
+    <tr>
+        <th>功能</th>
+        <td colspan="2">获取用户个人信息</td>
+
+    </tr>
+    <tr>
+        <th>url</th>
+        <td colspan="2">/userinfo</td>
+    </tr>
+
+    <tr>
+        <th colspan="2">method</th>
+        <td>get</td>
+
+    </tr>
+    <tr>
+        <th colspan="3">params</th>
+    </tr>
+    <tr>
+        <th colspan="3">备注</th>
+    </tr>
+    <tr>
+
+        <td colspan="3">需要Token才能使用此接口</td>
+    </tr>
+
+    <tr>
+        <th colspan="3">return</th>
+
+    </tr>
+    <tr>
+        <td colspan="3">
+                <textarea name="return" id="1" cols="30" rows="10" >
+            {
+                 "code": 1,
+                 "data": {
+                "id": 53,
+                "username": "iss",
+                "sex": "女",
+                "age": 20,
+                "avatar":
+                "introduction":
+                "postnum": 100
+            },
+            "message": "success"
+             }
+             </textarea>
+
+
+        </td>
+    </tr>
+
+</table>
+<table border="1" cellspacing="0">
+    <tr>
+        <th>功能</th>
+        <td colspan="2">获取分区帖子</td>
+
+    </tr>
+    <tr>
+        <th>url</th>
+        <td colspan="2">/subarea</td>
+    </tr>
+
+    <tr>
+        <th colspan="2">method</th>
+        <td>post</td>
+
+    </tr>
+    <tr>
+        <th colspan="3">params</th>
+    </tr>
+    <tr>
+        <th>subarea</th>
+        <td colspan="2">分区</td>
+    </tr>
+    <tr>
+        <th>page</th>
+        <td colspan="2">当前页码，注意从0开始</td>
+    </tr>
+    <tr>
+        <th>pagesize</th>
+        <td colspan="2">每页多少条数据</td>
+    </tr>
+    <tr>
+        <th colspan="3">return</th>
+
+    </tr>
+    <tr>
+        <td colspan="3">
+                <textarea name="return"  cols="30" rows="10" >
+
+               json格式与热门贴的格式相同
+
+             </textarea>
+
+        </td>
+    </tr>
+
+</table>
+<br/>
+<table border="1" cellspacing="0">
+    <tr>
+        <th>功能</th>
+        <td colspan="2">获取自己所有帖子</td>
+
+    </tr>
+    <tr>
+        <th>url</th>
+        <td colspan="2">/myposts</td>
+    </tr>
+
+    <tr>
+        <th colspan="2">method</th>
+        <td>post</td>
+
+    </tr>
+    <tr>
+        <th colspan="3">params</th>
+    </tr>
+
+    <tr>
+        <th>page</th>
+        <td colspan="2">当前页码注意页码从0开始</td>
+    </tr>
+    <tr>
+        <th>pagesize</th>
+        <td colspan="2">每页多少条数据</td>
+    </tr>
+    <tr>
+        <th colspan="3">return</th>
+
+    </tr>
+    <tr>
+        <th colspan="3">备注</th>
+    </tr>
+    <tr>
+        <th colspan="3">需要token</th>
+    </tr>
+    <tr>
+        <td colspan="3">
+                <textarea name="return"  cols="30" rows="10" >
+
+                    json格式与热门贴相同
+
+             </textarea>
+
+        </td>
+    </tr>
+
+</table>
+<ol>
+    <li>修正了/savepost 中cover参数首字母小写</li>
+    <li>修改了/savepost 的参数————新增pictures</li>
+    <li>修改了/savecomment 的参数————新增replyto</li>
+    <li>修正了/postdetail 的返回值————新增属性pictures</li>
+    <li>修正了/hot的返回值，增加了cover属性</li>
+    <li>新增了/myposts接口</li>
+    <li>新增了/subarea接口</li>
+</ol>
+
+</body>
+<style>
+    td {
+        width: 200px;
+        text-align: center;
+    }
+
+    textarea {
+        width: 400px;
+        height: fit-content;
+        display: inline;
+
+    }
+</style>
+<script>
+
+    function hide(){
+        console.log("sds")
+        var nodes=document.getElementsByTagName("textarea")
+        for(var i=0;i<nodes.length;i++)
+        {
+            if(nodes[i].style.display=='none')
+                nodes[i].style.display='inline'
+            else
+                nodes[i].style.display='none'
+
+        }
+    }
+
+</script>
+
+</html>
